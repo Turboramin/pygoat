@@ -9,8 +9,3 @@ gunicorn
 django-heroku
 whitenoise
 django-allauth
-Pillow==8.4.0
-urllib3==1.25.6
-Nltk==3.4.4
-Requests==2.19.1
-Jinja2==2.10
