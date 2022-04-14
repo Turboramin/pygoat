@@ -31,10 +31,6 @@ jobs:
         run: |
          python3 ./pygoat/manage.py runserver 0.0.0.0:8000& # Arachni doesnt support scanning on 127.0.0.1
          
-      - name: temp
-        run: |
-         pwd
-         
       - name: install & run Arachni scan
         run: |
          wget https://github.com/Arachni/arachni/releases/download/v1.6.1/arachni-1.6.1-0.6.1-linux-x86_64.tar.gz
@@ -46,4 +42,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: arachni_report
-          path: report.afr
+          path: /home/runner/work/pygoat/pygoat/arachni-1.6.1-0.6.1/bin/report.afr
