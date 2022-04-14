@@ -36,10 +36,10 @@ jobs:
          wget https://github.com/Arachni/arachni/releases/download/v1.6.1/arachni-1.6.1-0.6.1-linux-x86_64.tar.gz
          tar -xf arachni-1.6.1-0.6.1-linux-x86_64.tar.gz
          cd arachni-1.6.1-0.6.1/bin/
-         ./arachni http://0.0.0.0:8000/
+         ./arachni http://0.0.0.0:8000/ --report-save-path report
          
       - name: upload result artifact
         uses: actions/upload-artifact@v3
         with:
           name: arachni_report
-          path: 0.0.0.0*.afr
+          path: report.afr
