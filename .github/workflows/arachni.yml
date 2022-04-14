@@ -29,19 +29,19 @@ jobs:
          
       - name: run development server on localhost
         run: |
-         python3 ./pygoat/manage.py runserver&
+         python3 ./pygoat/manage.py runserver 0.0.0.0:8000& # Arachni doesnt support scanning on 127.0.0.1
          
-#      - name: Wait for response server
-#        uses: nev7n/wait_for_response@v1
-#        with:
-#         url: 'http://127.0.0.1:8000'
-#         responseCode: 302
-#         timeout: 60000
-#         interval: 500
-     
       - name: install & run Arachni scan
         run: |
          wget https://github.com/Arachni/arachni/releases/download/v1.6.1/arachni-1.6.1-0.6.1-linux-x86_64.tar.gz
          tar -xf arachni-1.6.1-0.6.1-linux-x86_64.tar.gz
          cd arachni-1.6.1-0.6.1/bin/
-         ./arachni 127.0.0.1:8000
+         ./arachni http://0.0.0.0:8000/
+         
+      - name: upload result artifact
+      - uses: actions/checkout@v2
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: arachni_report
+          path: 0.0.0.0*.afr
