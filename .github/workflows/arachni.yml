@@ -39,7 +39,7 @@ jobs:
          ./arachni http://0.0.0.0:8000/
          
       - name: upload result artifact
-      - uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: arachni_report
           path: 0.0.0.0*.afr
