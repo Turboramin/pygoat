@@ -39,8 +39,6 @@ jobs:
          ./arachni http://0.0.0.0:8000/
          
       - name: upload result artifact
-      - run: mkdir -p 0.0.0.0*.afr
-      - run: echo hello > 0.0.0.0*.afr
       - uses: actions/upload-artifact@v3
         with:
           name: arachni_report
