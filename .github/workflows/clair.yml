@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Setup Clair
         run: |
-          apt install docker-compose -y
+          sudo apt install docker-compose -y
           mkdir -p clair/docker-compose-data/clair-config
           wget https://raw.githubusercontent.com/jgsqware/clairctl/master/docker-compose.yml --directory-prefix=clair/docker-compose-data/
           wget https://raw.github.com/jgsqware/clairctl/master/docker-compose-data/clair-config/config.yml --directory-prefix=clair/clair-config/
