@@ -30,12 +30,12 @@ jobs:
 
       - name: Build an image from Dockerfile
         run: |
-          docker build .
+          docker build -t pygoat:1.0 .
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@2a2157eb22c08c9a1fac99263430307b8d1bc7a2
         with:
-          image-ref: '.'
+          image-ref: 'pygoat:1.0'
           format: 'template'
           template: '@/contrib/sarif.tpl'
           output: 'trivy-results.sarif'
