@@ -47,3 +47,6 @@ jobs:
         uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
+          
+      - name: print SARIF report
+        run: cat ${{ steps.scan.outputs.sarif }}
